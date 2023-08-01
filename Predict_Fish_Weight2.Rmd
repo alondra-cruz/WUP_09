@@ -125,5 +125,5 @@ summary(RoachModel)
 ```
 For the best model adjusted r square is 0.8482
 
-
 ## Final Summary Statements
+Looking at the data from lowest to highest adjusted r square, would be Roach, then Perch and Pike is the highest. Among these models we found that the best model is the Pike model with the highest adjusted r square being 0.96. 

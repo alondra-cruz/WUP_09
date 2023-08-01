@@ -48,9 +48,15 @@ results = data.frame(
 print(results)
 
 ```
-
+The best two variables to predict weight is height and width. 
 
 ### Best Two regressor model
+The best two regressor models are
+```{r}
+perchModel=lm(Weight~Height+Width,data=perch)
+summary(perchModel)
+```
+For the best model adjusted r square is 0.94
 
 
 ## Pike
@@ -59,6 +65,24 @@ pike = filter(fishData, Species == "Pike")
 ```
 
 ### Best Models
+```{r}
+models = regsubsets(Weight ~ Length1+Length2+Length3+Height+Width, data=pike,
+                    nvmax=5)
+
+summary(models)
+
+res.sum <- summary(models)
+Adj.R2 = which.max(res.sum$adjr2)
+print(paste("best adjusted r-squared", Adj.R2))
+
+results = data.frame(
+  Adj.R2 = which.max(res.sum$adjr2),
+  CP = which.min(res.sum$cp),
+  BIC = which.min(res.sum$bic)
+)
+print(results)
+
+```
 
 ### Best Two regressor model
 
